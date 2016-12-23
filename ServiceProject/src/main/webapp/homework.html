@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$.ajax({
+	 type : "get",
+    url: 'stu_homework.do?id=1',
+    data:{},
+    dataType: "json",
+    success: function (data) {
+   	 /*data在里应该是一个json对象数组*/
+   	 alert("success!");
+   	var text = "";
+        $.each(data, function (ind, val) {
+       	// alert(val.roomNum);
+       	text+=val.id;
+        })
+       // alert(text);
+        $("#test").html(text);
+       // text = "";
+    }
+
+})
+</script>
+</head>
+<body>
+	welcome to homework page
+	<p id='test'></p>
+</body>
+</html>
